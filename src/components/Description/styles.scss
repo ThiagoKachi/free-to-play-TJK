@@ -1,0 +1,53 @@
+section {
+  background: url('../../assets/fortnite(1).png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 280px;
+  width: 100%;
+  box-shadow: inset 10px 10px 200px 100px rgba(0,0,0,1);
+  border: 2px solid var(--black);
+
+  .infos {
+    text-align: center;
+    padding: 50px 0;
+
+    h1 {
+      color: var(--white);
+      font-size: 36px;
+
+      span {
+        color: var(--pink);
+      }
+    }
+
+    p {
+      color: var(--gray);
+      font-size: 20px;
+      margin-top: 8px;
+      margin-bottom: 60px;
+    }
+  
+    a {
+      padding: 14px 40px;
+      background: var(--pink);
+      color: var(--white);
+      border: none;
+      border-radius: 2px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
+      &:active {
+        transform: scale(0.99);
+      }
+    }
+  }
+}
