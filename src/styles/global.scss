@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --gray: #D3D3D3;
+  --pink: #ec46a5;
+  --light-green: #5DD4C1;
+  --very-light-blue: #74DBEF;
+  --light-blue: #264E86;
+  --medium-blue: #06092B;
+  --dark-blue: #030415;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--medium-blue);
+}
