@@ -1,5 +1,9 @@
 import React from 'react';
 
+import windowsImg from '../../assets/windows.png';
+
+import './styles.scss';
+
 type GameProps = {
   game: {
     id: string;
@@ -16,12 +20,20 @@ export function Card({
 }: GameProps) {
   return (
     <div className="card">
-      <img src={thumbnail} alt="" />
-      <h2>{title}</h2>
-      <p>{short_description}</p>
+      <img className="thumbnail" src={thumbnail} alt="Thumbnail do jogo" />
+      {title.length > 18 ? <h2>{title.substr(0, 17)}...</h2> : <h2>{title}</h2>}
+      <p>
+        {short_description.length > 30
+          ? `${short_description.substr(0, 29)}...`
+          : short_description}
+      </p>
       <div className="type-platform">
-        <p>{genre}</p>
-        <img src={platform} alt="" />
+        <span>{genre}</span>
+        {platform === 'PC (Windows)' ? (
+          <img src={windowsImg} alt="Plataforma" />
+        ) : (
+          <span className="all-platforms">All</span>
+        )}
       </div>
     </div>
   );

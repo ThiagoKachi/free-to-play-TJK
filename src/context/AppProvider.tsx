@@ -27,6 +27,7 @@ export function AppProvider(props: AppContextProviderProps) {
   useEffect(() => {
     async function getGamesList() {
       setIsLoading(true);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const getGamesListFromApi: any = await getGameList();
       setGameList(getGamesListFromApi);
       setIsLoading(false);
