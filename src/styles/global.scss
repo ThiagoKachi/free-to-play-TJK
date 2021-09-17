@@ -16,6 +16,10 @@
   --dark-blue: #030415;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   background: var(--medium-blue);
