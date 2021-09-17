@@ -1,9 +1,10 @@
 import axios from 'axios';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export async function getGameList() {
   try {
     const { data } = await axios.get<string[]>(
-      'https://free-to-play-games-database.p.rapidapi.com/api/games?rapidapi-key=3cf7f88022msha14dd59eaf4f22ap199bafjsnd949c9895df1'
+      `https://free-to-play-games-database.p.rapidapi.com/api/games?rapidapi-key=${API_KEY}`
     );
     return data;
   } catch (err) {

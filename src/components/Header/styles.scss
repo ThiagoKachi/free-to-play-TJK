@@ -75,3 +75,16 @@
     }
   }
 }
+
+@media (max-width: 620px) {
+  .header-bar {
+    .logo {
+      margin: 0 auto;
+    }
+    .menu-links {
+      .search-games {
+        display: none;
+      }
+    }
+  }
+}
