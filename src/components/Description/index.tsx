@@ -7,10 +7,10 @@ export function Description() {
   return (
     <section>
       <div className="infos">
-        <h1>
+        <h1 className="title">
           Encontre e acompanhe os melhores jogos <span>grátis!</span>
         </h1>
-        <p>
+        <p className="description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At,
           eius!Lorem ipsum dolor sit amet, consectetur.
         </p>
