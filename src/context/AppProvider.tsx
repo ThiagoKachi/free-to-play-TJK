@@ -5,7 +5,7 @@ import { getGameList } from '../services';
 type AppContextType = {
   isLoading: boolean;
   gameList: {
-    id: string;
+    id: number;
     title: string;
     thumbnail: string;
     short_description: string;
