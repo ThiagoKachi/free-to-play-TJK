@@ -2,35 +2,52 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
-import { Loading } from '../../components/Loading';
 
 import { GameByIdContext } from '../../context/GameByIdProvider';
 
 import logoutImg from '../../assets/logout.png';
 import infoImg from '../../assets/info.png';
+import userCountImg from '../../assets/user-count.png';
 
 import './styles.scss';
 
 export function GameDetails() {
-  const { gameDetails, isLoading } = useContext(GameByIdContext);
+  const { gameDetails } = useContext(GameByIdContext);
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <>
       <Header />
-      <img src={gameDetails.screenshots[0].image} alt="Background image" />
+      {/* <img
+        src={gameDetails.screenshots[Math.floor(Math.random() * 3) + 1].image}
+        alt="Background image"
+        className="background-image"
+      /> */}
       <div className="content">
         <div className="left-content">
           <img src={gameDetails.thumbnail} alt="Game image" />
           <div className="play-now">
             <span>Grátis</span>
-            <Link to={gameDetails.game_url}>
+            <a href={gameDetails.game_url}>
               Jogue Agora
               <img src={logoutImg} alt="log out" />
-            </Link>
+            </a>
           </div>
-          <span className="status">{gameDetails.status}</span>
+          <div className="status-count-require">
+            <div className="status">
+              <div
+                className={
+                  gameDetails.status === 'Live'
+                    ? 'circle-live'
+                    : 'circle-not-live'
+                }
+              ></div>
+              <span className="game-status">{gameDetails.status}</span>
+            </div>
+            <span className="count-require">
+              <img src={userCountImg} alt="User" />
+              Requer conta de terceiros
+            </span>
+          </div>
         </div>
         <div className="right-content">
           <h1>{gameDetails.title}</h1>
@@ -71,9 +88,9 @@ export function GameDetails() {
           </div>
           <h2>{gameDetails.title} Images</h2>
           <div className="game-images">
-            <img src={gameDetails.screenshots[0].image} alt="image 1" />
-            <img src={gameDetails.screenshots[1].image} alt="image 2" />
-            <img src={gameDetails.screenshots[2].image} alt="image 3" />
+            {gameDetails.screenshots.map(({ image }) => (
+              <img key={image} src={image} alt="image 3" />
+            ))}
           </div>
           <h2>Requisitos Mínimos do Sistema (Windows)</h2>
           <span></span>
