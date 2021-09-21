@@ -5,7 +5,7 @@
 }
 
 .left-content {
-  margin-top: 80px;
+  margin-top: 50px;
 
   img {
     border-radius: 2px;
@@ -101,6 +101,141 @@
   }
 }
 
-.right-content {
+// ---------------
 
+.right-content {
+  margin-top: 42px;
+  margin-left: 30px;
+
+  .game-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  .about-game {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .game-description {
+    padding: 0;
+    line-height: 21px;
+  }
+
+  .game-infos {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .game-shop-info {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.6;
+
+    img {
+      width: 16px;
+      margin-right: 10px;
+      filter: invert(100%);
+    }
+  }
+
+  hr {
+    height: 0.1px;
+    border-color: var(--white);
+    opacity: 0.04;
+    margin-bottom: 10px;
+  }
+
+  .additional-infos {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    span {
+      display: flex;
+      flex-direction: column;
+      margin: 8px 0;
+
+      p {
+        margin: 4px 0;
+        text-align: left;
+        padding: 0;
+        opacity: 0.6;
+      }
+    }
+
+    .game-platform {
+      span {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+
+        .windows-image {
+          width: 14px;
+          margin-right: 6px;
+          filter: invert(100%);
+        }
+      }
+    }
+  }
+
+  .game-images-title {
+    padding: 0;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .game-images {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    img {
+      border-radius: 2px;
+      height: 120px;
+      width: 210px;
+    }
+  }
+
+  .min-reqs {
+    padding: 0;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    span {
+      font-size: 20px;
+      opacity: 0.6;
+    }
+  }
+
+  .requirements-system {
+    margin-top: 18px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    span {
+      display: flex;
+      flex-direction: column;
+      margin: 8px 0;
+
+      p {
+        margin: 4px 0;
+        text-align: left;
+        padding: 0;
+        opacity: 0.6;
+      }
+    }
+  }
 }
