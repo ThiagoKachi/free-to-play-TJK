@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Header } from '../../components/Header';
 
@@ -8,6 +7,7 @@ import { GameByIdContext } from '../../context/GameByIdProvider';
 import logoutImg from '../../assets/logout.png';
 import infoImg from '../../assets/info.png';
 import userCountImg from '../../assets/user-count.png';
+import windowsImg from '../../assets/windows.png';
 
 import './styles.scss';
 
@@ -50,74 +50,94 @@ export function GameDetails() {
           </div>
         </div>
         <div className="right-content">
-          <h1>{gameDetails.title}</h1>
-          <h2>Sobre {gameDetails.title}</h2>
-          <p>{gameDetails.description}</p>
-          <h3>Informações Adicionais</h3>
-          <p>
+          <h1 className="game-title">{gameDetails.title}</h1>
+          <h2 className="about-game">Sobre {gameDetails.title}</h2>
+          <p className="game-description">{gameDetails.description}</p>
+          <h3 className="game-infos">Informações Adicionais</h3>
+          <p className="game-shop-info">
             <img src={infoImg} alt="info" />
             Observe que este jogo grátis pode ou não oferecer compras opcionais
             no jogo.
           </p>
-          <span></span>
+          <hr />
           <div className="additional-infos">
             <span>
-              Título
+              <p>Título</p>
               {gameDetails.title}
             </span>
             <span>
-              Desenvolvedor
+              <p>Desenvolvedor</p>
               {gameDetails.developer}
             </span>
             <span>
-              Publisher
+              <p>Publisher</p>
               {gameDetails.publisher}
             </span>
             <span>
-              Data de lançamento
+              <p>Data de lançamento</p>
               {gameDetails.release_date}
             </span>
             <span>
-              Gênero
+              <p>Gênero</p>
               {gameDetails.genre}
             </span>
-            <span>
-              Plataforma
-              {gameDetails.platform}
+            <span className="game-platform">
+              <p>Plataforma</p>
+              {gameDetails.platform === 'Windows' ? (
+                <span>
+                  <img
+                    src={windowsImg}
+                    alt="Windows"
+                    className="windows-image"
+                  />
+                  {gameDetails.platform}
+                </span>
+              ) : (
+                <span>All Platforms</span>
+              )}
             </span>
           </div>
-          <h2>{gameDetails.title} Images</h2>
+          <h2 className="game-images-title">{gameDetails.title} Screenshots</h2>
           <div className="game-images">
             {gameDetails.screenshots.map(({ image }) => (
-              <img key={image} src={image} alt="image 3" />
+              <a
+                key={image}
+                href={image}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img key={image} src={image} alt="image 3" />
+              </a>
             ))}
           </div>
-          <h2>Requisitos Mínimos do Sistema (Windows)</h2>
-          <span></span>
+          <h2 className="min-reqs">
+            Requisitos Mínimos do Sistema <span>(Windows)</span>
+          </h2>
+          <hr />
           <div className="requirements-system">
             <span>
-              OS
+              <p>OS</p>
               {gameDetails.minimum_system_requirements.os}
             </span>
             <span>
-              Processador
+              <p>Processador</p>
               {gameDetails.minimum_system_requirements.processor}
             </span>
             <span>
-              Memória
+              <p>Memória</p>
               {gameDetails.minimum_system_requirements.memory}
             </span>
             <span>
-              Gráficos
+              <p>Gráficos</p>
               {gameDetails.minimum_system_requirements.graphics}
             </span>
             <span>
-              Armazenamento
+              <p>Armazenamento</p>
               {gameDetails.minimum_system_requirements.memory}
             </span>
             <span>
-              Notas Adicionais <br /> As especificações podem mudar durante o
-              desenvolvimento.
+              <p>Notas Adicionais</p>
+              As especificações podem mudar durante o desenvolvimento.
             </span>
           </div>
         </div>
