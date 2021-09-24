@@ -5,9 +5,8 @@ import { useHistory } from 'react-router';
 import { getGameById } from '../services';
 
 type GameByIdContextType = {
-  redirectToGameDetails: (id: number) => void;
   gameById: (id: number) => Promise<any>;
-  isLoading: boolean;
+  getGameDetails: (id: number) => Promise<any>;
   gameDetails: {
     id: number;
     title: string;
@@ -42,26 +41,24 @@ export const GameByIdContext = createContext({} as GameByIdContextType);
 
 export function GameByIdProvider(props: GameByIdContextProviderProps) {
   const [gameDetails, setGameDetails] = useState<any>();
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function gameById(id: number) {
-    setIsLoading(true);
-    const getGamesListFromApi: any = await getGameById(id);
-    setGameDetails(getGamesListFromApi);
-    setIsLoading(false);
-  }
 
   const history = useHistory();
 
-  function redirectToGameDetails(id: number) {
+  async function gameById(id: number) {
+    const getGamesListFromApi: any = await getGameById(id);
+    setGameDetails(getGamesListFromApi);
     history.push(`/${id}`);
+  }
+
+  async function getGameDetails(id: number) {
+    const getGamesListFromApi: any = await getGameById(id);
+    setGameDetails(getGamesListFromApi);
   }
 
   const infosToShare = {
     gameDetails,
-    isLoading,
-    redirectToGameDetails,
     gameById,
+    getGameDetails,
   };
 
   return (

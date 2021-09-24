@@ -7,24 +7,14 @@ import { SearchGames } from './pages/SearchGames';
 import { NotFound } from './pages/NotFound';
 import { GameDetails } from './pages/GameDetails';
 
-import { GameByIdProvider } from './context/GameByIdProvider';
-
 import './styles/global.scss';
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/">
-        <GameByIdProvider>
-          <Home />
-        </GameByIdProvider>
-      </Route>
+      <Route exact path="/" component={Home} />
       <Route exact path="/search" component={SearchGames} />
-      <Route exact path="/:id">
-        <GameByIdProvider>
-          <GameDetails />
-        </GameByIdProvider>
-      </Route>
+      <Route exact path="/:gameid" component={GameDetails} />
       <Route exact path="*" component={NotFound} />
     </Switch>
   );

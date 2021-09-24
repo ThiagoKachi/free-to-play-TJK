@@ -12,7 +12,7 @@ export async function getGameList() {
   }
 }
 
-export async function getGameById(id: number | string) {
+export async function getGameById(id: number) {
   try {
     const { data } = await axios.get(
       `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}&rapidapi-key=${API_KEY}`

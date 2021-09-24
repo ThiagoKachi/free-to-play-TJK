@@ -20,13 +20,10 @@ type GameProps = {
 export function Card({
   game: { id, title, thumbnail, short_description, genre, platform },
 }: GameProps) {
-  const { gameById, redirectToGameDetails } = useContext(GameByIdContext);
+  const { gameById } = useContext(GameByIdContext);
 
   return (
-    <div
-      className="card"
-      onClick={() => gameById(id).then(() => redirectToGameDetails(id))}
-    >
+    <div className="card" onClick={() => gameById(id)}>
       <img className="thumbnail" src={thumbnail} alt="Thumbnail do jogo" />
       {title.length > 18 ? <h2>{title.substr(0, 17)}...</h2> : <h2>{title}</h2>}
       <p>

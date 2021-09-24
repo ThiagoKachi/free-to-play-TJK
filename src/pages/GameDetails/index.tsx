@@ -1,6 +1,9 @@
-import React, { useContext } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router';
 
 import { Header } from '../../components/Header';
+import { NotFound } from '../NotFound';
 
 import { GameByIdContext } from '../../context/GameByIdProvider';
 
@@ -12,16 +15,17 @@ import windowsImg from '../../assets/windows.png';
 import './styles.scss';
 
 export function GameDetails() {
-  const { gameDetails } = useContext(GameByIdContext);
+  const { gameDetails, getGameDetails } = useContext(GameByIdContext);
 
-  return (
+  const { gameid } = useParams<any>();
+
+  useEffect(() => {
+    getGameDetails(Number(gameid));
+  }, [gameid, getGameDetails]);
+
+  return gameDetails !== undefined ? (
     <>
       <Header />
-      {/* <img
-        src={gameDetails.screenshots[Math.floor(Math.random() * 3) + 1].image}
-        alt="Background image"
-        className="background-image"
-      /> */}
       <div className="content">
         <div className="left-content">
           <img src={gameDetails.thumbnail} alt="Game image" />
@@ -143,5 +147,7 @@ export function GameDetails() {
         </div>
       </div>
     </>
+  ) : (
+    <NotFound />
   );
 }
