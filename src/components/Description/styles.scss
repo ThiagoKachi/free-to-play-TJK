@@ -1,4 +1,4 @@
-section {
+.free-game {
   background: url('../../assets/fortnite(1).png');
   background-repeat: no-repeat;
   background-position: center;
@@ -7,7 +7,20 @@ section {
   width: 100%;
   box-shadow: inset 10px 10px 200px 100px rgba(0,0,0,1);
   border: 2px solid var(--black);
+}
 
+.promos {
+  background: url('../../assets/gta.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 280px;
+  width: 100%;
+  box-shadow: inset 10px 10px 200px 100px rgba(0,0,0,1);
+  border: 2px solid var(--black);
+}
+
+section {
   .infos {
     text-align: center;
     padding: 50px 0;
@@ -25,7 +38,6 @@ section {
       color: var(--gray);
       font-size: 20px;
       margin-top: 8px;
-      margin-bottom: 60px;
     }
   
     a {
@@ -47,6 +59,28 @@ section {
 
       &:active {
         transform: scale(0.99);
+      }
+    }
+
+    .or-styles {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      p {
+        padding: 0 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      span {
+        background:var(--white);
+        opacity: 0.19;
+        margin-bottom: 10px;
+        height: 1px;
+        width: 30%;
       }
     }
   }
