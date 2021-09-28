@@ -3,7 +3,8 @@ import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import { Header } from '../../components/Header';
-import { NotFound } from '../NotFound';
+import { Loading } from '../../components/Loading';
+import { Footer } from '../../components/Footer';
 
 import { GameByIdContext } from '../../context/GameByIdProvider';
 
@@ -146,8 +147,9 @@ export function GameDetails() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   ) : (
-    <NotFound />
+    <Loading />
   );
 }

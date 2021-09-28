@@ -6,7 +6,7 @@ import './styles.scss';
 
 export function Footer() {
   return (
-    <div className="header">
+    <div className="footer">
       <div className="logo">
         <img src={gameImg} alt="Logo image" />
         <h1>freetoplayTJK</h1>
