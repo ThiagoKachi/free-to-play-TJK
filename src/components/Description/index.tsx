@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
-export function Description() {
+type DescriptionProps = {
+  buttonTitle: string;
+  pageDescription: ReactNode;
+  changeImage: string;
+  linkTo: string;
+};
+
+export function Description({
+  buttonTitle,
+  pageDescription,
+  changeImage,
+  linkTo,
+}: DescriptionProps) {
   return (
-    <section>
+    <section className={changeImage}>
       <div className="infos">
-        <h1 className="title">
-          Encontre e acompanhe os melhores jogos <span>grátis!</span>
-        </h1>
+        <h1 className="title">Encontre e acompanhe {pageDescription}</h1>
         <p className="description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. At,
           eius!Lorem ipsum dolor sit amet, consectetur.
         </p>
-        <Link className="search-button" to="/search">
-          Procurar Jogos
+        <div className="or-styles">
+          <span></span>
+          <p>ou</p>
+          <span></span>
+        </div>
+        <Link className="search-button" to={linkTo}>
+          {buttonTitle}
         </Link>
       </div>
     </section>

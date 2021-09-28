@@ -14,10 +14,10 @@ export function Header() {
         </div>
         <div className="menu-links">
           <Link to="/" className="search-games">
-            Home
+            Jogos Grátis
           </Link>
-          <Link to="/search" className="search-games">
-            Explore
+          <Link to="/promo" className="search-games">
+            Promoções
           </Link>
         </div>
       </div>
